@@ -21,3 +21,5 @@ Welcome to the Frontend Mentor To-Do App Challenge! This repository contains a d
 - 🎨 **User-Friendly Interface:** Experience a clean and intuitive interface that allows for easy navigation and a delightful user experience.
 
 ![Todo App - Dark Mode](/design/desktop-design-dark.jpg)
+
+![Todo App - Light Mode](/design/desktop-design-light.jpg)
