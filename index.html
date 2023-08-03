@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Todo App</title>
+  </head>
+  <body>
+    <main class="container">
+      <div class="todo__container">
+        <div class="todo__header">
+          <h1 class="todo__header--title">Todo</h1>
+          <button class="todo__header--toggle-btn">
+            <img src="images/icon-sun.svg" alt="theme-icon" />
+          </button>
+        </div>
+        <form class="todo__form">
+          <button type="submit" class="add-btn circle"></button>
+          <input
+            type="text"
+            id="todo-input"
+            placeholder="Create a new todo..."
+            autocomplete="off"
+            pattern="[A-Za-z0-9 ]{5,70}"
+            title="Your Task must contain more than 5 letters and less than 30"
+            required
+          />
+        </form>
+        <div class="todo__tasks">
+          <ul id="tasks__list"></ul>
+          <div class="filtration__container">
+            <p class="tasks-number"></p>
+            <div class="filter-tasks">
+              <button class="all-tasks-btn active" data-name="all">All</button>
+              <button class="active-tasks-btn" data-name="active">
+                Active
+              </button>
+              <button class="completed-tasks-btn" data-name="completed">
+                Completed
+              </button>
+            </div>
+            <button class="clear-completed-btn">Clear Completed</button>
+          </div>
+        </div>
+        <div class="filter-tasks mobile">
+          <button class="all-tasks-btn active" data-name="all">All</button>
+          <button class="active-tasks-btn" data-name="active">Active</button>
+          <button class="completed-tasks-btn" data-name="completed">
+            Completed
+          </button>
+        </div>
+      </div>
+    </main>
+    <script src="js/mode.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

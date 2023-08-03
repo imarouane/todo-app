@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
+:root {
+    font-size: 62.5%;
+    --color-white: hsl(0, 0%, 98%);
+    --color-primary: hsl(0, 0%, 98%);
+    --color-secondary: hsl(0, 0%, 98%);
+    --color-bright-blue: hsl(220, 98%, 61%);
+    --color-circle: hsl(233, 11%, 84%);
+    --color-text: hsl(235, 19%, 35%);
+    --color-text-inactive: hsl(233, 11%, 84%);
+    --color-text-filter: hsl(236, 9%, 61%);
+    --color-text-filter-h: hsl(237, 14%, 26%);
+    --color-check-gradient: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    --bg-desktop-url: url(../images/bg-desktop-light.jpg);
+    --bg-mobile-url: url(../images/bg-mobile-light.jpg);
+}
+
+:root[data-theme="dark"] {
+    --color-primary: hsl(235, 21%, 11%);
+    --color-secondary: hsl(235, 24%, 19%);
+    --color-circle: hsl(233, 14%, 35%);
+    --color-text: hsl(234, 39%, 85%);
+    --color-text-inactive: hsl(233, 14%, 35%);
+    --color-text-filter: hsl(233, 14%, 35%);
+    --color-text-filter-h: hsl(234, 39%, 85%);
+    --bg-desktop-url: url(../images/bg-desktop-dark.jpg);
+    --bg-mobile-url: url(../images/bg-mobile-dark.jpg);
+}
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: var(--color-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-image: var(--bg-desktop-url);
+    background-size: 100% 24%;
+    background-repeat: no-repeat;
+    transition: all 0.25s ease-in-out;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+li {
+    list-style: none;
+}
+
+.todo__container {
+    width: 450px;
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.todo__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo__header--title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-white);
+    letter-spacing: 1rem;
+}
+
+.todo__header--toggle-btn {
+    cursor: pointer;
+}
+
+.todo__header--toggle-btn img {
+    width: 2rem;
+    height: 2rem;
+    transition: all .20s ease-in-out;
+}
+
+.from-left {
+    animation: from-left .50s ease-in-out;
+}
+
+@keyframes from-left {
+    0% {
+        transform: translate(-50%) rotate(120deg);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+
+        transform: translateX(0) rotate(0);
+        opacity: 1;
+    }
+}
+
+.todo__form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--color-secondary);
+    padding: 1.8rem;
+    border-radius: 0.5rem;
+    z-index: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.todo__form>input[type="text"] {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--color-text);
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-family: 'Josefin Sans', sans-serif;
+    caret-color: var(--color-bright-blue);
+}
+
+.circle {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    border: 1.5px solid var(--color-circle);
+    position: relative;
+    cursor: pointer;
+}
+
+.circle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2.2rem;
+    height: 2.2rem;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    background-image: var(--color-check-gradient);
+    border-radius: 50%;
+    z-index: -1;
+    transition: all .15s ease-in-out;
+}
+
+.circle:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.todo__tasks {
+    background: var(--color-secondary);
+    border-radius: .5rem;
+    box-shadow: 8px 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.todo__tasks ul {
+    display: flex;
+    flex-direction: column;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-text-filter-h);
+    border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-text-filter);
+    border-radius: 0.5rem;
+}
+
+.task {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--color-circle);
+    z-index: 1;
+}
+
+.task.completed>.check-btn {
+    background: var(--color-check-gradient);
+}
+
+.task.completed .check-btn::after {
+    display: none;
+}
+
+.task-text {
+    font-size: 1.5rem;
+    color: var(--color-text);
+}
+
+.task.completed .task-text {
+    color: var(--color-text-inactive);
+    text-decoration: line-through;
+}
+
+
+.delete-task-btn {
+    padding: .5rem;
+}
+
+.delete-task-btn img {
+    width: 1.4rem;
+    height: 1.4rem;
+    cursor: pointer;
+    transition: all .20s ease-in-out;
+}
+
+@media (hover) {
+    .task:hover .delete-task-btn img {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .delete-task-btn img {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+.filtration__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem 1.4rem;
+}
+
+.tasks-number,
+.filter-tasks button,
+.clear-completed-btn {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--color-text-filter);
+    transition: all .20s ease-in-out;
+}
+
+.filter-tasks button,
+.clear-completed-btn {
+    cursor: pointer;
+}
+
+.filter-tasks button:hover,
+.clear-completed-btn:hover {
+    color: var(--color-text-filter-h);
+}
+
+.filter-tasks button.active {
+    color: var(--color-bright-blue);
+}
+
+.filter-tasks button.active:hover {
+    color: var(--color-bright-blue);
+}
+
+.filter-tasks {
+    display: flex;
+    gap: 1rem;
+}
+
+.filter-tasks.mobile {
+    background-color: var(--color-secondary);
+    padding: 1.5rem;
+    border-radius: .5rem;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        background-image: var(--bg-mobile-url);
+    }
+
+    .todo__container {
+        width: 375px;
+        padding: 1rem;
+    }
+
+    .filter-tasks {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .filter-tasks.mobile {
+        opacity: 1;
+        visibility: visible;
+    }
+}
