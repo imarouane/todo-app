@@ -14,6 +14,10 @@ Welcome to the Frontend Mentor To-Do App Challenge! This repository contains a d
 
 - 📱 **Responsive Design:** The app is designed to be fully responsive, adapting perfectly to various devices, including desktops, tablets, and mobile phones.
 
+| Dark                                                                       | Light                                                                       |
+| -------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| <img src="/design/mobile-design-dark.jpg" width="240" title="At 375px"> | <img src="/design/mobile-design-light.jpg" width="240" title="At 375px"> |
+
 - 🎨 **User-Friendly Interface:** Experience a clean and intuitive interface that allows for easy navigation and a delightful user experience.
 
 ![Todo App - Dark Mode](/design/desktop-design-dark.jpg)
