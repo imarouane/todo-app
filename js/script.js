@@ -43,7 +43,7 @@ let tasks = [
 
 const getStoredTasks = () => {
   let stordeTasks = JSON.parse(localStorage.getItem("tasks"));
-  stordeTasks !== null || "" ? (tasks = stordeTasks) : (tasks = []);
+  stordeTasks !== null ? (tasks = stordeTasks) : (tasks = []);
 };
 getStoredTasks();
 
